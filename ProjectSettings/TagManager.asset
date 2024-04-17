@@ -7,6 +7,8 @@ TagManager:
   - Paddle
   - Wall
   - Number
+  - Player1BackWall
+  - Player2BackWall
   layers:
   - Default
   - TransparentFX

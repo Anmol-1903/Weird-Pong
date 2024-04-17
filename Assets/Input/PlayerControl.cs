@@ -24,13 +24,22 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     ""name"": ""PlayerControl"",
     ""maps"": [
         {
-            ""name"": ""Game"",
+            ""name"": ""LocalMultiplayer"",
             ""id"": ""0c1f1085-4360-4ef7-9f61-fa11964dec6f"",
             ""actions"": [
                 {
-                    ""name"": ""Vertical"",
+                    ""name"": ""VerticalP1"",
                     ""type"": ""Value"",
                     ""id"": ""1dba2f5b-6a3d-4c1f-812a-e7297a72ab74"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""VerticalP2"",
+                    ""type"": ""Value"",
+                    ""id"": ""7635d5f8-8075-4216-8a25-2730ff515a43"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -45,7 +54,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical"",
+                    ""action"": ""VerticalP1"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -56,7 +65,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical"",
+                    ""action"": ""VerticalP1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -67,73 +76,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""e7ec646b-a3d5-4948-9c87-207ac18a29a8"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""ddc8d130-a131-49d9-b292-d2e1b83df527"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""3db78a27-d7d7-4153-ad65-571fd7a0d6c8"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""a5c0ae72-5417-426e-8197-4c2ba3ab850e"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""4cc3d6ae-b37c-4699-972c-7bd6b04cd4d9"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""fe0f1069-08c9-4e8d-a48c-ed7959e42687"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Vertical"",
+                    ""action"": ""VerticalP1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -144,13 +87,151 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""VerticalP1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""986c9c4c-dde3-4683-b97a-f3cbd1dc50f5"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalP2"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""4cd61676-f807-44a1-a67c-6b2f9444a2ff"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""20ddd59c-0599-41f0-8d35-b9b0c9798331"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f9ce2bb-be75-47e9-b38c-ad83b0f5db71"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""VerticalP2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""SinglePlayer"",
+            ""id"": ""e51d6a0e-5ef3-4d41-8798-78d4734d6106"",
+            ""actions"": [
+                {
+                    ""name"": ""Vertical"",
+                    ""type"": ""Value"",
+                    ""id"": ""68af0f68-1d3b-46e6-be9e-1d5c288f527f"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""16ee2a45-c234-49e5-9986-96af156c1709"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""5bc692b7-ddee-4e23-b213-2cef2e4cb5df"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""a1e92594-9c33-4f8d-9cef-a4f804879b00"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f7e6be85-fe03-4da0-bf55-e3210676d98b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""dabb4b07-877d-4921-8e4f-363bf7cdbbb8"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""fada3ac4-e806-4318-a522-a6653882ce11"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f848a50-bb2b-4285-9a66-04daba8258c7"",
+                    ""path"": ""<Gamepad>/leftStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Vertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bb85406f-6451-4c26-8f75-6f51b6eddb30"",
+                    ""id"": ""ae097c43-372a-44c2-942a-19b35cb8802b"",
                     ""path"": ""<Gamepad>/rightStick/y"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -164,9 +245,13 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Game
-        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
-        m_Game_Vertical = m_Game.FindAction("Vertical", throwIfNotFound: true);
+        // LocalMultiplayer
+        m_LocalMultiplayer = asset.FindActionMap("LocalMultiplayer", throwIfNotFound: true);
+        m_LocalMultiplayer_VerticalP1 = m_LocalMultiplayer.FindAction("VerticalP1", throwIfNotFound: true);
+        m_LocalMultiplayer_VerticalP2 = m_LocalMultiplayer.FindAction("VerticalP2", throwIfNotFound: true);
+        // SinglePlayer
+        m_SinglePlayer = asset.FindActionMap("SinglePlayer", throwIfNotFound: true);
+        m_SinglePlayer_Vertical = m_SinglePlayer.FindAction("Vertical", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -225,52 +310,111 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Game
-    private readonly InputActionMap m_Game;
-    private List<IGameActions> m_GameActionsCallbackInterfaces = new List<IGameActions>();
-    private readonly InputAction m_Game_Vertical;
-    public struct GameActions
+    // LocalMultiplayer
+    private readonly InputActionMap m_LocalMultiplayer;
+    private List<ILocalMultiplayerActions> m_LocalMultiplayerActionsCallbackInterfaces = new List<ILocalMultiplayerActions>();
+    private readonly InputAction m_LocalMultiplayer_VerticalP1;
+    private readonly InputAction m_LocalMultiplayer_VerticalP2;
+    public struct LocalMultiplayerActions
     {
         private @PlayerControl m_Wrapper;
-        public GameActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Vertical => m_Wrapper.m_Game_Vertical;
-        public InputActionMap Get() { return m_Wrapper.m_Game; }
+        public LocalMultiplayerActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @VerticalP1 => m_Wrapper.m_LocalMultiplayer_VerticalP1;
+        public InputAction @VerticalP2 => m_Wrapper.m_LocalMultiplayer_VerticalP2;
+        public InputActionMap Get() { return m_Wrapper.m_LocalMultiplayer; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
-        public void AddCallbacks(IGameActions instance)
+        public static implicit operator InputActionMap(LocalMultiplayerActions set) { return set.Get(); }
+        public void AddCallbacks(ILocalMultiplayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_GameActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_GameActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_LocalMultiplayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_LocalMultiplayerActionsCallbackInterfaces.Add(instance);
+            @VerticalP1.started += instance.OnVerticalP1;
+            @VerticalP1.performed += instance.OnVerticalP1;
+            @VerticalP1.canceled += instance.OnVerticalP1;
+            @VerticalP2.started += instance.OnVerticalP2;
+            @VerticalP2.performed += instance.OnVerticalP2;
+            @VerticalP2.canceled += instance.OnVerticalP2;
+        }
+
+        private void UnregisterCallbacks(ILocalMultiplayerActions instance)
+        {
+            @VerticalP1.started -= instance.OnVerticalP1;
+            @VerticalP1.performed -= instance.OnVerticalP1;
+            @VerticalP1.canceled -= instance.OnVerticalP1;
+            @VerticalP2.started -= instance.OnVerticalP2;
+            @VerticalP2.performed -= instance.OnVerticalP2;
+            @VerticalP2.canceled -= instance.OnVerticalP2;
+        }
+
+        public void RemoveCallbacks(ILocalMultiplayerActions instance)
+        {
+            if (m_Wrapper.m_LocalMultiplayerActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ILocalMultiplayerActions instance)
+        {
+            foreach (var item in m_Wrapper.m_LocalMultiplayerActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_LocalMultiplayerActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public LocalMultiplayerActions @LocalMultiplayer => new LocalMultiplayerActions(this);
+
+    // SinglePlayer
+    private readonly InputActionMap m_SinglePlayer;
+    private List<ISinglePlayerActions> m_SinglePlayerActionsCallbackInterfaces = new List<ISinglePlayerActions>();
+    private readonly InputAction m_SinglePlayer_Vertical;
+    public struct SinglePlayerActions
+    {
+        private @PlayerControl m_Wrapper;
+        public SinglePlayerActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Vertical => m_Wrapper.m_SinglePlayer_Vertical;
+        public InputActionMap Get() { return m_Wrapper.m_SinglePlayer; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SinglePlayerActions set) { return set.Get(); }
+        public void AddCallbacks(ISinglePlayerActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SinglePlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SinglePlayerActionsCallbackInterfaces.Add(instance);
             @Vertical.started += instance.OnVertical;
             @Vertical.performed += instance.OnVertical;
             @Vertical.canceled += instance.OnVertical;
         }
 
-        private void UnregisterCallbacks(IGameActions instance)
+        private void UnregisterCallbacks(ISinglePlayerActions instance)
         {
             @Vertical.started -= instance.OnVertical;
             @Vertical.performed -= instance.OnVertical;
             @Vertical.canceled -= instance.OnVertical;
         }
 
-        public void RemoveCallbacks(IGameActions instance)
+        public void RemoveCallbacks(ISinglePlayerActions instance)
         {
-            if (m_Wrapper.m_GameActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_SinglePlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IGameActions instance)
+        public void SetCallbacks(ISinglePlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_GameActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_SinglePlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_GameActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_SinglePlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public GameActions @Game => new GameActions(this);
-    public interface IGameActions
+    public SinglePlayerActions @SinglePlayer => new SinglePlayerActions(this);
+    public interface ILocalMultiplayerActions
+    {
+        void OnVerticalP1(InputAction.CallbackContext context);
+        void OnVerticalP2(InputAction.CallbackContext context);
+    }
+    public interface ISinglePlayerActions
     {
         void OnVertical(InputAction.CallbackContext context);
     }
