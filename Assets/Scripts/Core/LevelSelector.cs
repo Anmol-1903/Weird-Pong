@@ -29,7 +29,14 @@ public class LevelSelector : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene(_levelIndex);
+        if (_levelIndex != 2)
+        {
+            SceneManager.LoadScene(_levelIndex + 1);
+        }
+        else
+        {
+            FindObjectOfType<LaunchManager>().JoinRandomGame();
+        }
     }
     private void FixedUpdate()
     {
