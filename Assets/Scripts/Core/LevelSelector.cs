@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class LevelSelector : MonoBehaviour
 {
@@ -6,16 +8,37 @@ public class LevelSelector : MonoBehaviour
 
     [SerializeField] float[] _positions;
 
-    /*
-    0 - single
-    1 - local
-    2 - online
-     */
+    PlayerControl inputActions;
 
     public int _levelIndex;
+
+
     private void Awake()
     {
         _levelIndex = 0;
+        inputActions = new PlayerControl();
+    }
+    public void OnEnable()
+    {
+        inputActions.Enable();
+        inputActions.MainMenu.ChangeUp.performed += ChangeUp_performed;
+        inputActions.MainMenu.ChangeDown.performed += ChangeDown_performed;
+    }
+    private void OnDisable()
+    {
+        inputActions.Disable();
+        inputActions.MainMenu.ChangeUp.performed -= ChangeUp_performed;
+        inputActions.MainMenu.ChangeDown.performed -= ChangeDown_performed;
+    }
+
+    private void ChangeDown_performed(InputAction.CallbackContext context)
+    {
+        NextLevel();
+    }
+
+    private void ChangeUp_performed(InputAction.CallbackContext obj)
+    {
+        PreviousLevel();
     }
     public void NextLevel()
     {

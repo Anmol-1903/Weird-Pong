@@ -34,13 +34,6 @@ public class SinglePlayerController : MonoBehaviour
 
         playerControl.LocalMultiplayer.VerticalP1.performed += VerticalP1_performed;
         playerControl.LocalMultiplayer.VerticalP1.canceled += VerticalP1_canceled;
-
-        ball.IncreaseDifficulty += IncreaseDifficultyPerformed;
-    }
-
-    private void IncreaseDifficultyPerformed(object sender, EventArgs e)
-    {
-        _speed = ball.GetSpeed();
     }
 
     private void OnDisable()
@@ -48,8 +41,6 @@ public class SinglePlayerController : MonoBehaviour
         playerControl.Disable();
 
         playerControl.LocalMultiplayer.VerticalP1.performed -= VerticalP1_performed;
-
-        ball.IncreaseDifficulty -= IncreaseDifficultyPerformed;
     }
     private void VerticalP1_performed(CallbackContext obj)
     {

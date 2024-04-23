@@ -241,6 +241,252 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MainMenu"",
+            ""id"": ""430c45ac-9915-4254-965a-2a5629f5e3ee"",
+            ""actions"": [
+                {
+                    ""name"": ""ChangeUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ee28f2f-f6ec-4611-996c-6904b07b42ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2452889-fe65-4f4d-8ecd-1e6d383b875f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""def36518-24e9-4bef-acb6-e22a398eeaa6"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7784f790-fab9-4bf5-8a08-feac1ebeafb5"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2cfead81-149f-4a69-b2cb-ecf1dfb85d5c"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64fe7849-b8c8-4cf0-8c1f-9a1764634eec"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4485d9b7-25d5-433e-aa4f-a1b3ddc740e0"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ec3be6c-58dc-46de-8a10-55226a49317b"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c6222a3-3964-4af8-b01a-dd4367101e2f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""765ba644-705c-43b4-a358-a1aa86331a5f"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb047295-5258-4061-a5a4-cb9d5b9d0ea6"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1a05d88-b3fe-475d-bb08-4c51b34cd430"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5c3d64f-a19a-4fbe-ab27-e1f6f0389492"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d6725d4-e98d-4e4a-9855-bdd05de5d5fa"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19ed0ee6-c78c-445d-938c-f04cc0352434"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cfe4898-bae6-477e-968e-5b0dc06783ac"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61cf1ef9-a485-4d32-a870-09469ae17da1"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6641526f-bb1f-4f27-bdd1-f562bb1bba1d"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79369acc-d77c-4b05-ae1c-e79c99b46fb0"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bec3bd0e-a03c-4a80-94eb-e75e873657b2"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea34cdc8-3819-4cf9-8494-9056357ca94d"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e88a50dd-1944-4d48-8959-bc8ed724ab51"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -252,6 +498,10 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         // SinglePlayer
         m_SinglePlayer = asset.FindActionMap("SinglePlayer", throwIfNotFound: true);
         m_SinglePlayer_Vertical = m_SinglePlayer.FindAction("Vertical", throwIfNotFound: true);
+        // MainMenu
+        m_MainMenu = asset.FindActionMap("MainMenu", throwIfNotFound: true);
+        m_MainMenu_ChangeUp = m_MainMenu.FindAction("ChangeUp", throwIfNotFound: true);
+        m_MainMenu_ChangeDown = m_MainMenu.FindAction("ChangeDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -409,6 +659,60 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         }
     }
     public SinglePlayerActions @SinglePlayer => new SinglePlayerActions(this);
+
+    // MainMenu
+    private readonly InputActionMap m_MainMenu;
+    private List<IMainMenuActions> m_MainMenuActionsCallbackInterfaces = new List<IMainMenuActions>();
+    private readonly InputAction m_MainMenu_ChangeUp;
+    private readonly InputAction m_MainMenu_ChangeDown;
+    public struct MainMenuActions
+    {
+        private @PlayerControl m_Wrapper;
+        public MainMenuActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ChangeUp => m_Wrapper.m_MainMenu_ChangeUp;
+        public InputAction @ChangeDown => m_Wrapper.m_MainMenu_ChangeDown;
+        public InputActionMap Get() { return m_Wrapper.m_MainMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MainMenuActions set) { return set.Get(); }
+        public void AddCallbacks(IMainMenuActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MainMenuActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MainMenuActionsCallbackInterfaces.Add(instance);
+            @ChangeUp.started += instance.OnChangeUp;
+            @ChangeUp.performed += instance.OnChangeUp;
+            @ChangeUp.canceled += instance.OnChangeUp;
+            @ChangeDown.started += instance.OnChangeDown;
+            @ChangeDown.performed += instance.OnChangeDown;
+            @ChangeDown.canceled += instance.OnChangeDown;
+        }
+
+        private void UnregisterCallbacks(IMainMenuActions instance)
+        {
+            @ChangeUp.started -= instance.OnChangeUp;
+            @ChangeUp.performed -= instance.OnChangeUp;
+            @ChangeUp.canceled -= instance.OnChangeUp;
+            @ChangeDown.started -= instance.OnChangeDown;
+            @ChangeDown.performed -= instance.OnChangeDown;
+            @ChangeDown.canceled -= instance.OnChangeDown;
+        }
+
+        public void RemoveCallbacks(IMainMenuActions instance)
+        {
+            if (m_Wrapper.m_MainMenuActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMainMenuActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MainMenuActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MainMenuActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MainMenuActions @MainMenu => new MainMenuActions(this);
     public interface ILocalMultiplayerActions
     {
         void OnVerticalP1(InputAction.CallbackContext context);
@@ -417,5 +721,10 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     public interface ISinglePlayerActions
     {
         void OnVertical(InputAction.CallbackContext context);
+    }
+    public interface IMainMenuActions
+    {
+        void OnChangeUp(InputAction.CallbackContext context);
+        void OnChangeDown(InputAction.CallbackContext context);
     }
 }

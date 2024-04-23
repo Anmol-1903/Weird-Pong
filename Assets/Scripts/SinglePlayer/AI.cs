@@ -11,10 +11,6 @@ public class AI : MonoBehaviour
     {
         ball = _ball.GetComponent<Ball>();
     }
-    private void OnEnable()
-    {
-        ball.IncreaseDifficulty += IncreaseDifficultyPerformed;
-    }
 
     private void IncreaseDifficultyPerformed(object sender, EventArgs e)
     {

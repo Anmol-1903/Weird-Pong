@@ -1,9 +1,13 @@
+using Photon.Pun;
 using UnityEngine;
 using Photon.Realtime;
-using Photon.Pun;
 public class LaunchManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject _loadingScreen;
+    private void Start()
+    {
+        PhotonNetwork.NickName = "Player" + Random.Range(0, 10);
+    }
     public void JoinRandomGame()
     {
         if (!PhotonNetwork.IsConnected)
@@ -18,7 +22,7 @@ public class LaunchManager : MonoBehaviourPunCallbacks
     }
     public override void OnConnectedToMaster()
     {
-        Debug.Log(PhotonNetwork.NickName + "Connected To photon Server");
+        Debug.Log(PhotonNetwork.NickName + " Connected To photon Server");
         _loadingScreen.SetActive(false);
         PhotonNetwork.JoinRandomRoom();
     }
@@ -31,14 +35,18 @@ public class LaunchManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log(PhotonNetwork.NickName + " Joined " + PhotonNetwork.CurrentRoom.Name);
+        PhotonNetwork.LoadLevel(3);
     }
 
     private void CreateAndJoin()
     {
-        string roomName = "RoomNo" + Random.Range(0, 100000).ToString();
+        string roomName = "RoomNo" + Random.Range(0, 10).ToString();
+
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         roomOptions.IsOpen = true;
-        PhotonNetwork.CreateRoom(roomName: roomName, roomOptions: roomOptions);
+        roomOptions.IsVisible = true;
+
+        PhotonNetwork.CreateRoom(roomName, roomOptions);
     }
 }
