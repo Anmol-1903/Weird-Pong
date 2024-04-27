@@ -1,12 +1,15 @@
-using System;
 using System.IO;
 using Photon.Pun;
 using UnityEngine;
-public class PhotonManager : MonoBehaviour
+public class PhotonManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] GameObject _ball;
-    bool gameStarted = false;
 
+    void Awake()
+    {
+        _ball = GameObject.FindGameObjectWithTag("Ball");
+        _ball.SetActive(false);
+    }
     private void ActivateBall()
     {
         _ball.SetActive(true);
@@ -23,19 +26,19 @@ public class PhotonManager : MonoBehaviour
             PhotonNetwork.Instantiate(Path.Combine("Player", "OnlinePlayerRed"), new Vector3(9, 0, 0), Quaternion.identity);
         }
     }
-    private void Update()
+    public void Update()
     {
-        if (PhotonNetwork.IsMasterClient && !gameStarted)
+        if(_ball.activeInHierarchy)
         {
-            for (int i = 0; i < PhotonNetwork.CountOfPlayersInRooms; i++)
-            {
-                if (PhotonNetwork.PlayerList[i].NickName != "Ready")
-                {
-                    break;
-                }
-                gameStarted = true;
-            }
-            ActivateBall();
+            return;
         }
+        for(int i=0; i < 2; i++)
+        {
+            if(PhotonNetwork.PlayerList[i].NickName != "Ready")
+            {
+                return;
+            }
+        }
+        ActivateBall();
     }
 }

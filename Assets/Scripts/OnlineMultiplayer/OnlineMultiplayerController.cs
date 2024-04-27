@@ -1,4 +1,3 @@
-using System;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,14 +7,15 @@ public class OnlineMultiplayerController : MonoBehaviour
     PlayerControl playerControl;
     PhotonView pv;
 
-    float _vertica1;
+    float _vertical;
 
     public bool _Ready;
-    public float _Progress;
+    public float _Progress, _otherProgress;
 
     [SerializeField] float _speed;
     [SerializeField] float _minY, _maxY;
     Image _readyImage;
+    Image _otherImage;
     GameObject _readyScreen;
 
     private void Awake()
@@ -28,10 +28,14 @@ public class OnlineMultiplayerController : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             _readyImage = GameObject.FindGameObjectWithTag("P1").GetComponent<Image>();
+            _otherImage = GameObject.FindGameObjectWithTag("P2").GetComponent<Image>();
+            PhotonNetwork.NickName = "Player1";
         }
         else
         {
             _readyImage = GameObject.FindGameObjectWithTag("P2").GetComponent<Image>();
+            _otherImage = GameObject.FindGameObjectWithTag("P1").GetComponent<Image>();
+            PhotonNetwork.NickName = "Player2";
         }
     }
     private void OnEnable()
@@ -56,37 +60,55 @@ public class OnlineMultiplayerController : MonoBehaviour
     }
     private void Vertical_performed(CallbackContext obj)
     {
-        _vertica1 = obj.ReadValue<float>();
+        _vertical = obj.ReadValue<float>();
+    }
+    [PunRPC]
+    void UpdatePaddlePosition(float vertical)
+    {
+        _vertical = vertical;
     }
     private void Vertical_canceled(CallbackContext obj)
     {
-        _vertica1 = 0;
+        _vertical = 0;
     }
 
     private void Update()
     {
         if (pv.IsMine)
         {
-            if (_Ready)
-            {
-                _readyScreen.SetActive(false);
+            MovePaddle();
+            pv.RPC("UpdatePaddlePosition", RpcTarget.All, _vertical);
 
-                transform.Translate(0, _vertica1 * _speed * Time.deltaTime, 0);
-                transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, _minY, _maxY), transform.position.z);
-            }
-            else
+        }
+    }
+    void MovePaddle()
+    {
+        if (_Ready)
+        {
+            for (int i = 0; i < 2; i++)
             {
-                ReadyUp();
+                if (PhotonNetwork.PlayerList[i].NickName != "Ready")
+                {
+                    return;
+                }
             }
+            _readyScreen.SetActive(false);
+
+            transform.Translate(Vector3.up * _vertical * _speed * Time.deltaTime, Space.World);
+            transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, _minY, _maxY), transform.position.z);
+        }
+        else
+        {
+            ReadyUp();
         }
     }
     void ReadyUp()
     {
         if (!_Ready)
         {
-            if (_vertica1 > 0)
+            if (_vertical > 0)
             {
-                _Progress += _vertica1 * Time.deltaTime / 2;
+                _Progress += _vertical * Time.deltaTime / 2;
             }
             else if (_Progress > 0)
             {
@@ -97,8 +119,10 @@ public class OnlineMultiplayerController : MonoBehaviour
         if (_Progress >= 1)
         {
             _Ready = true;
+            Debug.Log(PhotonNetwork.NickName + " is Ready");
             PhotonNetwork.NickName = "Ready";
         }
         _readyImage.fillAmount = _Progress;
+        _otherImage.fillAmount = _otherProgress;
     }
 }

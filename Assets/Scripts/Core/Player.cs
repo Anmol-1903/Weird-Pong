@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [SerializeField] Material _ownMaterial, _trailMaterial;
@@ -29,7 +30,26 @@ public class Player : MonoBehaviour
         {
             paddles[i].SetActive(false);
         }
-        paddles[_score].SetActive(true);
+        if (_score < 2)
+        {
+            paddles[_score].SetActive(true);
+        }
+        else
+        {
+            if(SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                OnlineWinnerController.Instance.EndGame();
+                return;
+            }
+            if(gameObject.name == "Player1")
+            {
+                LocalWinner.Instance.Player1Win();
+            }
+            else if(gameObject.name == "Player2")
+            {
+                LocalWinner.Instance.Player2Win();
+            }
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

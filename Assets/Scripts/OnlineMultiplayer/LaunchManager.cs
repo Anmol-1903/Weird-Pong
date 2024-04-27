@@ -23,7 +23,6 @@ public class LaunchManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log(PhotonNetwork.NickName + " Connected To photon Server");
-        _loadingScreen.SetActive(false);
         PhotonNetwork.JoinRandomRoom();
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
