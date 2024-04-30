@@ -6482,7 +6482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 1 Won
+  m_text: Red Won
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53d6766d34e38b343ab338c0891f0534, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 23948b978b6ba3e4a8d69ed291936182, type: 2}
@@ -7860,7 +7860,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Player 1 Won
+  m_text: Blue Won
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 53d6766d34e38b343ab338c0891f0534, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 77279f05db7b19b4b82d5d8dc925faae, type: 2}

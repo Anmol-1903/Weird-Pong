@@ -1,29 +1,48 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 public class LevelSelector : MonoBehaviour
 {
     [SerializeField] Transform _container;
+    [SerializeField] GameObject _loadingScreen;
 
     [SerializeField] float[] _positions;
 
     PlayerControl inputActions;
+
+    VideoPlayer player;
+    AsyncOperation async;
 
     public int _levelIndex;
 
 
     private void Awake()
     {
+        _loadingScreen.SetActive(false);
         _levelIndex = 0;
         inputActions = new PlayerControl();
+        player = _loadingScreen.GetComponent<VideoPlayer>();
     }
     public void OnEnable()
     {
         inputActions.Enable();
         inputActions.MainMenu.ChangeUp.performed += ChangeUp_performed;
         inputActions.MainMenu.ChangeDown.performed += ChangeDown_performed;
+        player.loopPointReached += VideoEnded;
     }
+
+    private void VideoEnded(VideoPlayer source)
+    {
+        async.allowSceneActivation = true;
+        if(SceneManager.GetActiveScene().buildIndex == 3 ) 
+        { 
+            FindObjectOfType<LaunchManager>().JoinRandomGame();
+        }  
+    }
+
     private void OnDisable()
     {
         inputActions.Disable();
@@ -47,24 +66,19 @@ public class LevelSelector : MonoBehaviour
     public void PreviousLevel()
     {
         _levelIndex--;
-        if (_levelIndex < 0 )
+        if (_levelIndex < 0)
             _levelIndex = 2;
     }
     public void PlayGame()
     {
-        if (_levelIndex != 2)
-        {
-            SceneManager.LoadScene(_levelIndex + 1);
-        }
-        else
-        {
-            FindObjectOfType<LaunchManager>().JoinRandomGame();
-        }
+            _loadingScreen.SetActive(true);
+            async = SceneManager.LoadSceneAsync(_levelIndex + 1);
+            async.allowSceneActivation = false;
     }
     private void FixedUpdate()
     {
-        _container.position = Vector3.Lerp(_container.position, 
-            new Vector3(_container.position.x, _positions[_levelIndex], _container.position.z), 
+        _container.position = Vector3.Lerp(_container.position,
+            new Vector3(_container.position.x, _positions[_levelIndex], _container.position.z),
             Time.deltaTime * 5);
     }
 }

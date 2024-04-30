@@ -3,7 +3,6 @@ using UnityEngine;
 using Photon.Realtime;
 public class LaunchManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject _loadingScreen;
     private void Start()
     {
         PhotonNetwork.NickName = "Player" + Random.Range(0, 10);
@@ -14,7 +13,6 @@ public class LaunchManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.ConnectUsingSettings();
         }
-        _loadingScreen.SetActive(true);
     }
     public override void OnConnected()
     {
