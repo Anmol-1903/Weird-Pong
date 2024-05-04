@@ -3,32 +3,40 @@ using Photon.Pun;
 using UnityEngine;
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject _ball;
+    Ball ball;
+    PhotonView _pv;
 
     void Awake()
     {
-        _ball = GameObject.FindGameObjectWithTag("Ball");
-        _ball.SetActive(false);
+        ball = GetComponent<Ball>();
+        _pv = GetComponent<PhotonView>();
+        ball.enabled = false;
     }
-    private void ActivateBall()
+
+    [PunRPC]
+    public void ActivateBall()
     {
-        _ball.SetActive(true);
+        ball.enabled = true;
+        Debug.Log("Match Started");
     }
 
     private void Start()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsConnectedAndReady)
         {
-            PhotonNetwork.Instantiate(Path.Combine("Player", "OnlinePlayerBlue"), new Vector3(-9, 0, 0), Quaternion.identity);
-        }
-        else
-        {
-            PhotonNetwork.Instantiate(Path.Combine("Player", "OnlinePlayerRed"), new Vector3(9, 0, 0), Quaternion.identity);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(Path.Combine("Player", "OnlinePlayerBlue"), new Vector3(-9, 0, 0), Quaternion.identity);
+            }
+            else
+            {
+                PhotonNetwork.Instantiate(Path.Combine("Player", "OnlinePlayerRed"), new Vector3(9, 0, 0), Quaternion.identity);
+            }
         }
     }
     public void Update()
     {
-        if(_ball.activeInHierarchy)
+        if(PhotonNetwork.CountOfPlayers < 2)
         {
             return;
         }
@@ -39,6 +47,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                 return;
             }
         }
-        ActivateBall();
+        _pv.RPC("ActivateBall", RpcTarget.All);
     }
 }

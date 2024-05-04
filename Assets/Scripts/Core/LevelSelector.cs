@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Video;
 public class LevelSelector : MonoBehaviour
 {
     [SerializeField] Transform _container;
@@ -13,9 +10,6 @@ public class LevelSelector : MonoBehaviour
 
     PlayerControl inputActions;
 
-    VideoPlayer player;
-    AsyncOperation async;
-
     public int _levelIndex;
 
 
@@ -24,23 +18,12 @@ public class LevelSelector : MonoBehaviour
         _loadingScreen.SetActive(false);
         _levelIndex = 0;
         inputActions = new PlayerControl();
-        player = _loadingScreen.GetComponent<VideoPlayer>();
     }
     public void OnEnable()
     {
         inputActions.Enable();
         inputActions.MainMenu.ChangeUp.performed += ChangeUp_performed;
         inputActions.MainMenu.ChangeDown.performed += ChangeDown_performed;
-        player.loopPointReached += VideoEnded;
-    }
-
-    private void VideoEnded(VideoPlayer source)
-    {
-        async.allowSceneActivation = true;
-        if(SceneManager.GetActiveScene().buildIndex == 3 ) 
-        { 
-            FindObjectOfType<LaunchManager>().JoinRandomGame();
-        }  
     }
 
     private void OnDisable()
@@ -71,9 +54,15 @@ public class LevelSelector : MonoBehaviour
     }
     public void PlayGame()
     {
-            _loadingScreen.SetActive(true);
-            async = SceneManager.LoadSceneAsync(_levelIndex + 1);
-            async.allowSceneActivation = false;
+        _loadingScreen.SetActive(true);
+        if (_levelIndex < 2)
+        {
+            SceneManager.LoadSceneAsync(_levelIndex + 1);
+        }
+        else
+        {
+            FindObjectOfType<LaunchManager>().JoinRandomGame();
+        }
     }
     private void FixedUpdate()
     {

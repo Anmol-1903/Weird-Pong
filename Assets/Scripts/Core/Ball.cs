@@ -49,10 +49,10 @@ public class Ball : MonoBehaviour
     public void ResetBall()
     {
         transform.position = Vector3.zero;
-        Vector3 randomDirection = UnityEngine.Random.insideUnitSphere.normalized;
+        Vector3 randomDirection = Random.insideUnitSphere.normalized;
         randomDirection.z = 0;
         collisions = 0;
         rb.velocity = randomDirection * speed;
-        rb.angularVelocity = UnityEngine.Random.onUnitSphere.normalized * speed * 100 * Mathf.Deg2Rad;
+        rb.angularVelocity = Random.onUnitSphere.normalized * speed * 100 * Mathf.Deg2Rad;
     }
 }

@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         {
             paddles[i].SetActive(false);
         }
-        if (_score < 10)
+        if (_score < 2)         // MAX SCORE
         {
             paddles[_score].SetActive(true);
         }

@@ -15,7 +15,7 @@ public class OnlineMultiplayerController : MonoBehaviour
     [SerializeField] float _speed;
     [SerializeField] float _minY, _maxY;
     Image _readyImage;
-    Image _otherImage;
+    Image _otherReadyImage;
     GameObject _readyScreen;
 
     private void Awake()
@@ -28,13 +28,13 @@ public class OnlineMultiplayerController : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             _readyImage = GameObject.FindGameObjectWithTag("P1").GetComponent<Image>();
-            _otherImage = GameObject.FindGameObjectWithTag("P2").GetComponent<Image>();
+            _otherReadyImage = GameObject.FindGameObjectWithTag("P2").GetComponent<Image>();
             PhotonNetwork.NickName = "Player1";
         }
         else
         {
-            _readyImage = GameObject.FindGameObjectWithTag("P2").GetComponent<Image>();
-            _otherImage = GameObject.FindGameObjectWithTag("P1").GetComponent<Image>();
+            _readyImage = GameObject.FindGameObjectWithTag("P1").GetComponent<Image>();
+            _otherReadyImage = GameObject.FindGameObjectWithTag("P2").GetComponent<Image>();
             PhotonNetwork.NickName = "Player2";
         }
     }
@@ -62,14 +62,19 @@ public class OnlineMultiplayerController : MonoBehaviour
     {
         _vertical = obj.ReadValue<float>();
     }
+    private void Vertical_canceled(CallbackContext obj)
+    {
+        _vertical = 0;
+    }
     [PunRPC]
     void UpdatePaddlePosition(float vertical)
     {
         _vertical = vertical;
     }
-    private void Vertical_canceled(CallbackContext obj)
+    [PunRPC]
+    void UpdateFillAmount(float amt)
     {
-        _vertical = 0;
+        _otherProgress = amt;
     }
 
     private void Update()
@@ -78,7 +83,7 @@ public class OnlineMultiplayerController : MonoBehaviour
         {
             MovePaddle();
             pv.RPC("UpdatePaddlePosition", RpcTarget.All, _vertical);
-
+            pv.RPC("UpdateFillAmount", RpcTarget.Others, _Progress);
         }
     }
     void MovePaddle()
@@ -123,6 +128,6 @@ public class OnlineMultiplayerController : MonoBehaviour
             PhotonNetwork.NickName = "Ready";
         }
         _readyImage.fillAmount = _Progress;
-        _otherImage.fillAmount = _otherProgress;
+        _otherReadyImage.fillAmount = _otherProgress;
     }
 }

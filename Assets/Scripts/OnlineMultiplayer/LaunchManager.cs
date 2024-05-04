@@ -34,7 +34,6 @@ public class LaunchManager : MonoBehaviourPunCallbacks
         Debug.Log(PhotonNetwork.NickName + " Joined " + PhotonNetwork.CurrentRoom.Name);
         PhotonNetwork.LoadLevel(3);
     }
-
     private void CreateAndJoin()
     {
         string roomName = "RoomNo" + Random.Range(0, 10).ToString();
