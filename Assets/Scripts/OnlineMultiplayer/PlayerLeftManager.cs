@@ -3,29 +3,45 @@ using Photon.Pun;
 
 public class PlayerLeftManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] GameObject aiPrefab;
-    Vector3 lastPlayerPos; // Variable to store the last position of the player who left
+    [SerializeField] GameObject aiPrefab; // AI prefab to spawn
+    [SerializeField] GameObject aiPrefab2; // AI prefab to spawn
+    string lastPositionKey, scoreKey;
 
     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
     {
-        // Check if the player who left is not the local player
-        if (!otherPlayer.IsLocal)
+        PhotonNetwork.SetMasterClient(PhotonNetwork.LocalPlayer);
+
+        lastPositionKey = $"LastPlayerPosition_{otherPlayer.ActorNumber}";
+        scoreKey = $"LastPlayerScore_{otherPlayer.ActorNumber}";
+
+        // Retrieve the last position of the player who left
+        Vector3 lastPlayerPos = Vector3.zero;
+        int score = 0;
+
+        if (otherPlayer.CustomProperties.ContainsKey(lastPositionKey))
+            lastPlayerPos = (Vector3)otherPlayer.CustomProperties[lastPositionKey];
+
+        if (otherPlayer.CustomProperties.ContainsKey(scoreKey))
+            score = (int)otherPlayer.CustomProperties[scoreKey];
+
+
+        GameObject ai;
+
+        if (lastPlayerPos.x < 0)
         {
-            // Retrieve the last known position of the player who left
-            if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue("LastPlayerPosition", out object pos))
-            {
-                lastPlayerPos = (Vector3)pos;
-            }
+            ai = Instantiate(aiPrefab2, lastPlayerPos, Quaternion.identity);
+            ai.GetComponent<Player>().SetScore(score);
+        }
+        else
+        {
+            ai = Instantiate(aiPrefab, lastPlayerPos, Quaternion.identity);
+            ai.GetComponent<Player>().SetScore(score);
+        }
 
-            // Instantiate the AI player at the last player's position
-            Quaternion spawnRotation = Quaternion.identity; // Set the spawn rotation of the AI player
-            GameObject ai = PhotonNetwork.Instantiate(aiPrefab.name, lastPlayerPos, spawnRotation);
-
-            // Optionally, flip the AI's scale if the last player was on the left side
-            if (lastPlayerPos.x < 0)
-            {
-                ai.transform.localScale = new Vector3(-1, 1, 1);
-            }
+        // Flip AI's direction if it was on the left side
+        if (lastPlayerPos.x < 0)
+        {
+            ai.transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 }

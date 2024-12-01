@@ -43,6 +43,9 @@ MonoBehaviour:
   - UpdateFillAmount
   - SyncDisplayResult
   - ActivateBall
+  - UpdateOtherPlayerProgress
+  - SyncProgress
+  - CloseReadyScreen
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

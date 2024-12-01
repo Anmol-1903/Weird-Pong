@@ -7,18 +7,21 @@ public class Player : MonoBehaviour
     public Material GetMaterial() { return _ownMaterial; }
     public Material GetTrailMaterial() { return _trailMaterial; }
 
-    public int _score;
+    public int _score = 0;
 
     [SerializeField] GameObject[] paddles;
 
     private void Start()
     {
-        for (int i = 0; i < paddles.Length; i++)
-        {
-            paddles[i].SetActive(false);
-        }
-        paddles[0].SetActive(true);
+        UpdatePaddle();
     }
+
+    public void SetScore(int score)
+    {
+        _score = score;
+        UpdatePaddle();
+    }
+
     public void IncrementScore()
     {
         _score++;
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
         {
             paddles[i].SetActive(false);
         }
-        if (_score < 2)         // MAX SCORE
+        if (_score < 10)         // MAX SCORE
         {
             paddles[_score].SetActive(true);
         }
@@ -50,6 +53,10 @@ public class Player : MonoBehaviour
                 LocalWinner.Instance.Player2Win();
             }
         }
+    }
+    public int GetScore()
+    {
+        return _score;
     }
     private void OnTriggerEnter(Collider other)
     {
