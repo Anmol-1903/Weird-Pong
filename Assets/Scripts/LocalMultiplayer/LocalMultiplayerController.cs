@@ -10,6 +10,7 @@ public class LocalMultiplayerController : MonoBehaviour
     float _vertical1, _vertical2;
 
     bool _p1Ready, _p2Ready;
+    bool _p1Audio, _p2Audio;
     public float _p1Progress, _p2Progress;
 
     [SerializeField] float _speed;
@@ -110,12 +111,16 @@ public class LocalMultiplayerController : MonoBehaviour
             }
             Mathf.Clamp01(_p2Progress);
         }
-        if (_p1Progress >= 1)
+        if (_p1Progress >= 1 && !_p1Audio)
         {
+            AudioManager.instance.PlayerReadySFX();
+            _p1Audio = true;
             _p1Ready = true;
         }
-        if (_p2Progress >= 1)
+        if (_p2Progress >= 1 && !_p2Audio)
         {
+            AudioManager.instance.PlayerReadySFX();
+            _p2Audio = true;
             _p2Ready = true;
         }
         _readyImageBlue.fillAmount = _p1Progress;

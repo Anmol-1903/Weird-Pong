@@ -2,18 +2,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
-    [SerializeField] Material _ownMaterial, _trailMaterial;
-   
-    public Material GetMaterial() { return _ownMaterial; }
+    [SerializeField] Material _trailMaterial;
     public Material GetTrailMaterial() { return _trailMaterial; }
 
-    public int _score = 0;
+    public int _score = 0, scene;
 
     [SerializeField] GameObject[] paddles;
 
-    private void Start()
+    private void OnEnable()
     {
         UpdatePaddle();
+        scene = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void SetScore(int score)
@@ -24,6 +23,15 @@ public class Player : MonoBehaviour
 
     public void IncrementScore()
     {
+        if (scene == 1)
+            AudioManager.instance.PlayerScoreSFX();
+
+        else if (scene == 2)
+            if (name == "Player1")
+                AudioManager.instance.PlayerScoreSFX();
+            else
+                AudioManager.instance.EnemyScoreSFX();
+
         _score++;
         UpdatePaddle();
     }
@@ -39,16 +47,16 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(SceneManager.GetActiveScene().buildIndex == 3)
+            if(scene == 3)
             {
                 OnlineWinnerController.Instance.EndGame();
                 return;
             }
-            if(gameObject.name == "Player1")
+            if(name == "Player1")
             {
                 LocalWinner.Instance.Player1Win();
             }
-            else if(gameObject.name == "Player2")
+            else if(name == "Player2")
             {
                 LocalWinner.Instance.Player2Win();
             }

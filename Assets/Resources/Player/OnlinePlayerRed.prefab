@@ -413,9 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86a10b8d1b699842abc688cc87bd32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ownMaterial: {fileID: 2100000, guid: 13707fb3a53b2ae40a6e0a92d641c18a, type: 2}
   _trailMaterial: {fileID: 2100000, guid: 84be93652beced04b9426f16005df32c, type: 2}
   _score: 0
+  scene: 0
   paddles:
   - {fileID: 2714932618547959645}
   - {fileID: 4860433589246150330}
@@ -443,7 +443,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   observableSearch: 2
   ObservedComponents:
   - {fileID: -3657723126009112795}

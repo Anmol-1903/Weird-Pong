@@ -110,7 +110,6 @@ public class OnlineMultiplayerController : MonoBehaviourPun
         if (_Progress >= 1 && !_Ready)
         {
             _Ready = true;
-            Debug.Log(PhotonNetwork.NickName + " is Ready");
         }
     }
 

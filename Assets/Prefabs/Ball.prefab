@@ -97,6 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 2189712969241441646}
+  clips:
+  - {fileID: 8300000, guid: 090de2de69241af4eb0f1631d8e7a151, type: 3}
+  - {fileID: 8300000, guid: bdb02072a31c3a24cbc22a270a580499, type: 3}
+  - {fileID: 8300000, guid: c7552010246c73e4c8f9dcef60aca04e, type: 3}
+  - {fileID: 8300000, guid: fe35ff79df5c74c4096101ff6721c1c8, type: 3}
 --- !u!96 &759823322981203700
 TrailRenderer:
   serializedVersion: 3

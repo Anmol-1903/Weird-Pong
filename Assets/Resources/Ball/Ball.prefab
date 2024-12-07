@@ -381,7 +381,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bf62be5d799ce46968206135eae7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 1910208999675259316}
+  outline: {fileID: 3862183819004355457}
+  clips:
+  - {fileID: 8300000, guid: 090de2de69241af4eb0f1631d8e7a151, type: 3}
+  - {fileID: 8300000, guid: bdb02072a31c3a24cbc22a270a580499, type: 3}
+  - {fileID: 8300000, guid: c7552010246c73e4c8f9dcef60aca04e, type: 3}
+  - {fileID: 8300000, guid: fe35ff79df5c74c4096101ff6721c1c8, type: 3}
 --- !u!96 &3710262400234064834
 TrailRenderer:
   serializedVersion: 3
@@ -403,7 +408,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe814c31ba8392843a152b98c5d86d41, type: 2}
+  - {fileID: 2100000, guid: 84be93652beced04b9426f16005df32c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -424,7 +429,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.75
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -434,9 +439,9 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.5
         inSlope: 0
-        outSlope: -1
+        outSlope: -0.5
         tangentMode: 69
         weightedMode: 0
         inWeight: 0.33333334
@@ -444,7 +449,7 @@ TrailRenderer:
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -1
+        inSlope: -0.5
         outSlope: 0
         tangentMode: 69
         weightedMode: 0
